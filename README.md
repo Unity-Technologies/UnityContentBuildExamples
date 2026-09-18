@@ -1,4 +1,14 @@
-# UnityContentBuildExamples
-[View this project in Unity Internal Developer Portal](https://developer.portal.internal.unity.com/catalog/default/component/unitycontentbuildexamples) <br/>
-# Converting to public repository
-Any and all Unity software of any description (including components) (1) whose source is to be made available other than under a Unity source code license or (2) in respect of which a public announcement is to be made concerning its inner workings, may be licensed and released only upon the prior approval of Legal.
+# Unity Content Build Examples
+
+Small Unity projects that show how to build and load content with the content build features of
+Unity 6.6 and later, such as [content directories](https://docs.unity3d.com/Manual/content-directories.html).
+Each example is a complete project in its own folder, with a README that explains what it demonstrates and
+how to run it.
+
+| Example                        | Unity version | Demonstrates                                                          |
+| ------------------------------ | ------------- | --------------------------------------------------------------------- |
+| [AudioExample](AudioExample/)  | 6000.6        | Splitting audio into a Core content directory and optional Sound Packs, root assets, `Loadable<T>`, and deploying content directory builds into a player |
+
+## License
+
+Licensed under the Unity Companion License for Unity-dependent projects.  See [LICENSE.md](LICENSE.md).

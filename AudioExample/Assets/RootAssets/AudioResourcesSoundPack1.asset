@@ -1,0 +1,31 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c118ed1e06448a14a9d985ece6ef0e8a, type: 3}
+  m_Name: AudioResourcesSoundPack1
+  m_EditorClassIdentifier: 
+  clipFolder: Assets/Samples/SoundPack1
+  clips:
+  - key: a
+    value:
+      m_LoadableObjectId: {fileID: 8300000, loadable: 1, guid: b65a7916245593b4e89f4bd0aa920533, type: 3}
+  - key: b
+    value:
+      m_LoadableObjectId: {fileID: 8300000, loadable: 1, guid: 8fb0886c8a099dd41b90c45f7661a985, type: 3}
+  - key: c
+    value:
+      m_LoadableObjectId: {fileID: 8300000, loadable: 1, guid: 3d88ab3314ac1c9438e0f35a59507386, type: 3}
+  - key: d
+    value:
+      m_LoadableObjectId: {fileID: 8300000, loadable: 1, guid: a07c3f4745fae9045a615773fd208e27, type: 3}
+  - key: e
+    value:
+      m_LoadableObjectId: {fileID: 8300000, loadable: 1, guid: 196f8c9e3e9cc764db55da751c1b5d9d, type: 3}

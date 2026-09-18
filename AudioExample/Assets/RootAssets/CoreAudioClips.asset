@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d306bcaecd37da64f8c7abbef4fdfe06, type: 3}
+  m_Name: CoreAudioClips
+  m_EditorClassIdentifier: 
+  startupScene:
+    m_SceneGUID: 2905d3957f2009b4da7c1a5dbb0c90c7
+  startupSound:
+    m_LoadableObjectId: {fileID: 8300000, loadable: 1, guid: bcfb15cc8ce628a47b5fc7a109dcd327, type: 3}
+  secondSound:
+    m_LoadableObjectId: {fileID: 8300000, loadable: 1, guid: e931e2ca546c7ac4a8306f51fab22756, type: 3}

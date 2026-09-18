@@ -1,0 +1,43 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c118ed1e06448a14a9d985ece6ef0e8a, type: 3}
+  m_Name: AudioResourcesCore
+  m_EditorClassIdentifier: 
+  clipFolder: Assets/Samples/Core
+  clips:
+  - key: 1
+    value:
+      m_LoadableObjectId: {fileID: 8300000, loadable: 1, guid: d0c2f86c1157074499c565080193d5a5, type: 3}
+  - key: 2
+    value:
+      m_LoadableObjectId: {fileID: 8300000, loadable: 1, guid: 9607360293b294646ac2684e8de61c4e, type: 3}
+  - key: 3
+    value:
+      m_LoadableObjectId: {fileID: 8300000, loadable: 1, guid: 43b17a5450ece6b43a6b459b5eeaf648, type: 3}
+  - key: 4
+    value:
+      m_LoadableObjectId: {fileID: 8300000, loadable: 1, guid: 054a1ca02d98d394b85418dd05dad9ff, type: 3}
+  - key: 5
+    value:
+      m_LoadableObjectId: {fileID: 8300000, loadable: 1, guid: 870edf9b56842b44f8f5e92f0ea5a76e, type: 3}
+  - key: 6
+    value:
+      m_LoadableObjectId: {fileID: 8300000, loadable: 1, guid: 278c261333bf8604eb5c83790d02004d, type: 3}
+  - key: 7
+    value:
+      m_LoadableObjectId: {fileID: 8300000, loadable: 1, guid: aedaaf69c851e3d47bff4d6408971c31, type: 3}
+  - key: 8
+    value:
+      m_LoadableObjectId: {fileID: 8300000, loadable: 1, guid: c09ca9d2c17ea134eac56c494c04a1b8, type: 3}
+  - key: 9
+    value:
+      m_LoadableObjectId: {fileID: 8300000, loadable: 1, guid: f778ae0076321f44ab2c21fcaac7036e, type: 3}

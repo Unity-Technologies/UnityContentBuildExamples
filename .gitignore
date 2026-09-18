@@ -1,0 +1,47 @@
+# Unity generated folders.  Patterns without a slash apply to every project folder in this repo.
+[Ll]ibrary/
+[Tt]emp/
+[Oo]bj/
+[Ll]ogs/
+[Uu]ser[Ss]ettings/
+[Mm]emoryCaptures/
+[Rr]ecordings/
+
+# Content directory builds and player builds are written to <project>/Build.
+[Bb]uild/
+[Bb]uilds/
+
+# IDE and generated solution files.  Unity regenerates these on demand.
+.vs/
+.vscode/
+.idea/
+.vsconfig
+*.csproj
+*.sln
+*.suo
+*.user
+*.userprefs
+*.pidb
+*.pidb.meta
+*.booproj
+*.svd
+*.pdb
+*.pdb.meta
+*.mdb
+*.mdb.meta
+*.opendb
+*.VC.db
+ExportedObj/
+.consulo/
+
+# Build artifacts and crash reports.
+*.apk
+*.aab
+*.unitypackage
+*.app
+sysinfo.txt
+crashlytics-build.properties
+
+# OS files.
+.DS_Store
+Thumbs.db

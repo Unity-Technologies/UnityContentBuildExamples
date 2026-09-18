@@ -1,0 +1,27 @@
+# Normalize line endings to LF.  Unity writes LF in its text assets and Visual Studio handles LF.
+* text=auto eol=lf
+
+*.cs text diff=csharp
+
+# Unity YAML assets.  The projects use Force Text serialization, so these diff as text.  The merge
+# driver is only used when UnityYAMLMerge is configured in the local git config.
+*.unity text merge=unityyamlmerge eol=lf
+*.prefab text merge=unityyamlmerge eol=lf
+*.asset text merge=unityyamlmerge eol=lf
+*.meta text merge=unityyamlmerge eol=lf
+*.mat text merge=unityyamlmerge eol=lf
+*.anim text merge=unityyamlmerge eol=lf
+*.controller text merge=unityyamlmerge eol=lf
+*.inputactions text eol=lf
+
+# Binary content.
+*.mp3 binary
+*.wav binary
+*.ogg binary
+*.jpg binary
+*.jpeg binary
+*.png binary
+*.psd binary
+*.tga binary
+*.fbx binary
+*.dll binary
