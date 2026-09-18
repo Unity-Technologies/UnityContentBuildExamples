@@ -1,8 +1,7 @@
 # Content Directory Audio Example
 
 An example of splitting audio content across several content directories, using the
-[content directory](https://docs.unity3d.com/Manual/content-directories.html) API released in Unity 6.6.
-It requires Unity 6000.6.3f1 or a later Unity 6.6 release.
+[content directory](https://docs.unity3d.com/Manual/content-directories.html) API released in Unity 6.6.  Currently the project builds with 6.6, it will be upgraded to 6.7 after that is released.
 
 It uses a "Core" content directory that simulates the non-DLC content that would always ship with the
 player.  Additional audio clips are then built into separate content directories (aka "Sound Packs").

@@ -9,6 +9,25 @@ how to run it.
 | ------------------------------ | ------------- | --------------------------------------------------------------------- |
 | [AudioExample](AudioExample/)  | 6000.6        | Splitting audio into a Core content directory and optional Sound Packs, root assets, `Loadable<T>`, and deploying content directory builds into a player |
 
+
+## Maintenance
+
+This repository is maintained by the Unity Content Build & Distribution team.
+
+## Scope and versions
+
+Each example targets a specific Unity version, listed in the table above, and is kept working on that version. 
+
+Examples are updated when the content build APIs they demonstrate change in a way that breaks them, or upgraded if the targeting Unity version reaches the end of its support life cycle.
+
+Examples that demonstrate a removed or superseded feature will be retired.
+
+## Contributions and feedback.
+
+This repository is published as read-only reference material, so pull requests are not accepted.
+
+Issues are welcome — please report examples that do not work as described, or that no longer build on the described Unity version (or a more recent version).  Feedback can also be posted to [Unity Discussions](https://discussions.unity.com).
+
 ## License
 
 Licensed under the Unity Companion License for Unity-dependent projects.  See [LICENSE.md](LICENSE.md).
