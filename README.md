@@ -8,6 +8,7 @@ how to run it.
 | Example                        | Unity version | Demonstrates                                                          |
 | ------------------------------ | ------------- | --------------------------------------------------------------------- |
 | [AudioExample](AudioExample/)  | 6000.6        | Splitting audio into a Core content directory and optional Sound Packs, root assets, `Loadable<T>`, and deploying content directory builds into a player |
+| [PhrasebookExample](PhrasebookExample/) | 6000.6 | Localized images selected at runtime from one content directory: `Loadable<T>` in a serialized dictionary, a prefab component that swaps the variant, Play mode without a content build. A replacement for AssetBundle variants |
 
 
 ## Maintenance
