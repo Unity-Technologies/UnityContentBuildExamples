@@ -4,10 +4,8 @@ using UnityEditor.Build;
 using UnityEditor.Build.Reporting;
 using UnityEngine;
 
-// Menu items to build the example.  "Build Player" is the one to use: it builds the player for the
-// active platform, and ContentDirectoryDeployment builds the content directory as part of that player
-// build.  "Build Content Directory" builds the content on its own, for inspecting the output or for
-// command line use.
+// Custom build script to build the example.  The build profiles UI could also be used
+// this scripts builds with recommended build settings and is convenient for testing from the CLI.
 static class BuildAll
 {
     public const string RootAssetPath = "Assets/RootAssets/PhrasebookCatalog.asset";
@@ -41,13 +39,7 @@ static class BuildAll
         Debug.Log($"Built player to {options.locationPathName}");
     }
 
-    // Builds the content directory for the active platform and returns the build report.
-    [MenuItem("Example/Build Content Directory")]
-    public static void BuildContentDirectoryMenu()
-    {
-        BuildContentDirectory();
-    }
-
+    // Called automatically during the player build.
     public static BuildReport BuildContentDirectory()
     {
         Directory.CreateDirectory(ContentDirectoryPath);

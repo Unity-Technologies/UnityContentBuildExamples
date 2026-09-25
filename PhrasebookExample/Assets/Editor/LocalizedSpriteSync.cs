@@ -32,6 +32,9 @@ public class LocalizedSpriteSync : AssetPostprocessor
         AssetDatabase.SaveAssets();
     }
 
+    // The postprocessor only runs when a card image is imported, so it cannot see a change to
+    // LanguageSetting.Available.  Run this after adding or removing a language there, so every
+    // LocalizedSprite is checked against the new list and the warnings show what is missing.
     [MenuItem("Example/Sync Localized Sprites")]
     public static void SyncAll()
     {

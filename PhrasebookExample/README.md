@@ -1,14 +1,16 @@
 # Phrasebook Example
 
-Localized images in a single [content directory](https://docs.unity3d.com/Manual/content-directories.html),
-built with Unity 6.6.
+This is an example of a single [content directory](https://docs.unity3d.com/Manual/content-directories.html) with Localized images.
+
+It is an example of a simple pattern for "variants" when using a content directory build.
+
+The example is based on Unity 6.6.
 
 The scene shows four greeting cards. A dropdown selects English, French or Spanish, and every card
 swaps to the image for that language. All twelve images are built into one content directory, and the
 player loads only the ones for the selected language.
 
-This is the content directory way to ship the same content in several variants and pick one at
-runtime, a job that AssetBundle variants used to do. There is no build-time or file-name magic
+It shows a method to ship the same content in several variants and pick one at runtime.  This is similar to the AssetBundle variant functionality.  There is no build-time or file-name magic
 involved: the variants are ordinary data on a `ScriptableObject`, referenced through `Loadable<T>`.
 
 | English | French | Spanish |
@@ -21,10 +23,7 @@ Open `Assets/Scenes/Phrasebook.unity` and press Play. Pick a language from the d
 
 To build a player, select **Example > Build Player**. The player is built for the active platform into
 `Build/Player`, and the content directory is built and copied into its `StreamingAssets` folder as
-part of that build. Run the player and use the dropdown in the same way.
-
-The line at the bottom of the screen shows the name of the sprite each card is showing, for example
-`Hello.fr`, so you can see which variant is loaded.
+part of that build.
 
 ## How the pieces fit together
 
@@ -77,11 +76,12 @@ directory that was built beforehand, so that the Editor and the player exercise 
   * `LocalizedSprite.cs`, `LocalizedImage.cs`, `PhrasebookCatalog.cs`: the three types described above.
   * `CatalogProvider.cs`: returns the catalog, from the project in Play mode or from the content
     directory in a player.
-  * `PhrasebookController.cs`: fills the dropdown, instantiates the cards, and writes the status line.
+  * `PhrasebookController.cs`: fills the dropdown and instantiates the cards.
 * `Assets/Editor/`
   * `LocalizedSpriteSync.cs`: an `AssetPostprocessor` that fills each `LocalizedSprite` from the images
-    in its folder whenever they change, and warns when a language is missing. **Example > Sync
-    Localized Sprites** runs it over every folder.
+    in its folder whenever they change, and warns when a language is missing. It only runs when an
+    image is imported, so **Example > Sync Localized Sprites** exists for the one change it cannot
+    see: editing the language list in `LanguageSetting`.
   * `CardTextureImporter.cs`: imports the card images as sprites.
   * `BuildAll.cs`: the **Example** menu items.
   * `ContentDirectoryDeployment.cs`: a `BuildPlayerProcessor` that builds the content directory during
@@ -95,9 +95,41 @@ To add a phrase, create `Assets/Cards/<Phrase>/` with a `<Phrase>.<lang>.png` fo
 The sync creates `<Phrase>.asset`. Then make a card prefab for it and add the prefab to
 `PhrasebookCatalog`.
 
-To add a language, add its code and name to `LanguageSetting.Available` and add a
-`<Phrase>.<lang>.png` to every phrase folder. Until every folder has the image, the Console warns
-which phrase is missing it, and that card falls back to English.
+To add a language, add its code and name to `LanguageSetting.Available`, then select
+**Example > Sync Localized Sprites**. The Console warns for every phrase that has no image for the new
+language, and those cards fall back to English until you add a `<Phrase>.<lang>.png` to each folder.
+Adding the images updates the `LocalizedSprite` assets automatically.
+
+## Other ways to organize variants
+
+This example keys the data by phrase, then by language: one `LocalizedSprite` per phrase holds every
+language. That suits a prefab that shows one piece of content, because the prefab needs a single
+reference regardless of the language. There are other valid approaches. Content directories place
+no requirement on how variants are organized; anything reachable from a root asset through direct or
+loadable references is built, and any code you write can pick which reference to load.
+
+Some alternatives, each a reasonable fit for a different situation:
+
+* **Language first, then phrase.** A `LanguagePack` asset per language holds a dictionary from phrase
+  key to `Loadable<Sprite>`. A translation team can deliver a whole language as one folder, and a
+  postprocessor can fill the pack from it. Code looks up the current language's pack, then the phrase.
+  A prefab then refers to the phrase by key rather than by a direct reference, so a missing key shows
+  up at runtime rather than in the Inspector.
+* **One content directory per language.** With the language-first layout, each `LanguagePack` can be
+  the root asset of its own content directory. The player ships with one language and registers others
+  when they are present, and `ContentLoadManager.GetRootAssets<LanguagePack>()` returns whichever are
+  registered. The [AudioExample](../AudioExample/) shows several content directories working together.
+* **Variants of the same asset rather than different assets.** When the variants are the same source
+  asset at different import settings, for example texture quality tiers, the loadable id is the same in
+  every build. A high quality content directory registered after the base one takes precedence for
+  that id, so `Loadable<T>` fields resolve to the higher quality version without any table.  This is similar to how AssetBundle variants work, but at the scale of an entire content directory build.
+* **A single lookup table.** A root asset with a dictionary from a composite key such as
+  `"Hello/fr"` to `Loadable<Sprite>` is the smallest possible structure, and is close to loading by
+  string from an AssetBundle. It works, but the Inspector cannot show which languages a phrase has,
+  and nothing warns when one is missing.
+
+Whichever layout you choose, the parts that matter are the same: every variant is behind a
+`Loadable<T>` so that only the chosen one is loaded, and the choice is driven by a single place in the code.
 
 ## Concepts demonstrated
 

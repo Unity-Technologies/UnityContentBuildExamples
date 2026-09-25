@@ -5,8 +5,8 @@ Generates the card images used by the Phrasebook example.
 .DESCRIPTION
 Draws one PNG per phrase and language into Assets/Cards/<Phrase>/<Phrase>.<lang>.png: a rounded
 rectangle in the phrase's colour with the word centred in white and the language code in the corner.
-The images are committed to the repository, so this script only needs to run again to change a word,
-add a phrase, or add a language.
+The images are committed to the repository, so this script is only provided to show how to change a word,
+add a phrase or add a language.
 
 Uses System.Drawing, so it runs on Windows PowerShell or PowerShell 7 on Windows.
 

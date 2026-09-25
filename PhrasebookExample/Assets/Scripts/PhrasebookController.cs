@@ -1,19 +1,15 @@
 using System.Collections.Generic;
-using System.Text;
 using Unity.Loading;
 using UnityEngine;
 using UnityEngine.UI;
 
-// Drives the scene: fills the language dropdown, instantiates one card per prefab in the catalog,
-// and reports which sprites the cards are currently showing.
+// Drives the scene: fills the language dropdown and instantiates one card per prefab in the catalog.
 public class PhrasebookController : MonoBehaviour
 {
     public Dropdown languageDropdown;
-    public Text statusText;
     public RectTransform cardParent;
 
     readonly List<Loadable<GameObject>> m_Cards = new();
-    readonly StringBuilder m_Status = new();
 
     async void Start()
     {
@@ -28,6 +24,8 @@ public class PhrasebookController : MonoBehaviour
         }
         languageDropdown.AddOptions(names);
         languageDropdown.SetValueWithoutNotify(currentIndex);
+
+        // Hook up event so that the dropdown controls the active language.
         languageDropdown.onValueChanged.AddListener(index => LanguageSetting.Current = LanguageSetting.Available[index].Code);
 
         var catalog = CatalogProvider.Get();
@@ -51,20 +49,6 @@ public class PhrasebookController : MonoBehaviour
         }
 
         Debug.Log($"Phrasebook ready with {cardParent.childCount} cards");
-    }
-
-    void Update()
-    {
-        // The sprite names are the card image file names, so this line shows which language each
-        // card is showing.
-        m_Status.Clear();
-        m_Status.Append("Language: ").Append(LanguageSetting.Current).Append("    Showing: ");
-        foreach (var image in cardParent.GetComponentsInChildren<LocalizedImage>())
-        {
-            var sprite = image.GetComponent<Image>().sprite;
-            m_Status.Append(sprite != null ? sprite.name : "(loading)").Append("  ");
-        }
-        statusText.text = m_Status.ToString();
     }
 
     void OnDestroy()
