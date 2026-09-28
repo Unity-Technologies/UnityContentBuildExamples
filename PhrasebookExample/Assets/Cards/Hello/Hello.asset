@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a77298935bcb78240a12995fd4ebcf40, type: 3}
+  m_Name: Hello
+  m_EditorClassIdentifier: Assembly-CSharp::LocalizedSprite
+  languages:
+  - key: en
+    value:
+      m_LoadableObjectId: {fileID: 21300000, loadable: 1, guid: 34ad266271c366a4fb767ae8a6d3ab09, type: 3}
+  - key: es
+    value:
+      m_LoadableObjectId: {fileID: 21300000, loadable: 1, guid: d23563b65557fc24a971e0b3d0ec386f, type: 3}
+  - key: fr
+    value:
+      m_LoadableObjectId: {fileID: 21300000, loadable: 1, guid: ff897415814d4a54c838c4c9176814ff, type: 3}
